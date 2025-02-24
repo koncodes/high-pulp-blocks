@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kn/skills",
+	"version": "0.1.0",
+	"title": "Skills",
+	"category": "design",
+	"icon": "learn-more",
+	"description": "displays skills and competencies.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "skills",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"skills": {
+			"type": "array",
+			"default": []
+		}
+	}
+}

@@ -1,0 +1,26 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-kn-skills {
+	border: 1px dotted #f00;
+}
+
+.skill-item {
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.skills-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.skill-item img {
+	max-width: 100px;
+	height: auto;
+}
