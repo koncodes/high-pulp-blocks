@@ -21,13 +21,12 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...blockProps}>
-			<h2>Skills</h2>
 			<div className="skills-list">
 				{skills.map((skill, index) => (
 					<div key={index} className="skill-item">
-						{skill.imageUrl && <img src={skill.imageUrl} alt={skill.name} />}
-						<h3>{skill.name}</h3>
-						{skill.description && <p>{skill.description}</p>}
+						{skill.imageUrl && <img className="skill-img" src={skill.imageUrl} alt={skill.name} />}
+						{skill.name && <h3 className="skill-name">{skill.name}</h3>}
+						{skill.description && <p className="skill-desc">{skill.description}</p>}
 					</div>
 				))}
 			</div>

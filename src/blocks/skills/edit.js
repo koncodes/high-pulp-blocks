@@ -57,7 +57,6 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
-			<h2>{__('Skills', 'skills')}</h2>
 			{skills.map((skill, index) => (
 				<SkillEditor
 					key={index}

@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { TextControl, Button, TextareaControl } from '@wordpress/components';
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
+import { RichText, PlainText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 
 export default function SkillEditor({ skill, onChange, onRemove }) {
 	// Ensure skill is always an object
@@ -20,16 +20,19 @@ export default function SkillEditor({ skill, onChange, onRemove }) {
 
 	return (
 		<div className="skill-item">
-			<TextControl
+			<PlainText
+				className="skillname"
+				tagName="p"
 				label={__('Skill Name', 'skills')}
 				value={name}
 				onChange={handleNameChange}
 			/>
-			<TextareaControl
-				label={__('Skill Description', 'skills')}
+			<RichText
+				className="skilldesc"
+				tagName="div"
+				placeholder={__('Enter skill description.', 'skills')}
 				value={description}
 				onChange={handleDescriptionChange}
-				help={__('Add a brief description of the skill.', 'skills')}
 			/>
 			<MediaUploadCheck>
 				<MediaUpload
