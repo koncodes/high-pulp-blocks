@@ -309,19 +309,20 @@ function SkillEditor({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "skill-item",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
-      className: "skillname",
+      className: "skill-name",
       tagName: "p",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Skill Name', 'skills'),
       value: name,
       onChange: handleNameChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-      className: "skilldesc",
+      className: "skill-desc",
       tagName: "div",
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Enter skill description.', 'skills'),
       value: description,
       onChange: handleDescriptionChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+        className: "skill-upload",
         onSelect: handleImageChange,
         allowedTypes: ['image'],
         render: ({
@@ -332,6 +333,7 @@ function SkillEditor({
         })
       })
     }), imageUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      className: "skill-img",
       src: imageUrl,
       alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Skill Image', 'skills'),
       style: {

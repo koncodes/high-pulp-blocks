@@ -21,14 +21,14 @@ export default function SkillEditor({ skill, onChange, onRemove }) {
 	return (
 		<div className="skill-item">
 			<PlainText
-				className="skillname"
+				className="skill-name"
 				tagName="p"
 				label={__('Skill Name', 'skills')}
 				value={name}
 				onChange={handleNameChange}
 			/>
 			<RichText
-				className="skilldesc"
+				className="skill-desc"
 				tagName="div"
 				placeholder={__('Enter skill description.', 'skills')}
 				value={description}
@@ -36,6 +36,7 @@ export default function SkillEditor({ skill, onChange, onRemove }) {
 			/>
 			<MediaUploadCheck>
 				<MediaUpload
+					className="skill-upload"
 					onSelect={handleImageChange}
 					allowedTypes={['image']}
 					render={({ open }) => (
@@ -46,7 +47,7 @@ export default function SkillEditor({ skill, onChange, onRemove }) {
 				/>
 			</MediaUploadCheck>
 			{imageUrl && (
-				<img src={imageUrl} alt={__('Skill Image', 'skills')} style={{ maxWidth: '100px' }} />
+				<img className="skill-img" src={imageUrl} alt={__('Skill Image', 'skills')} style={{ maxWidth: '100px' }} />
 			)}
 			<Button isDestructive onClick={onRemove}>
 				{__('Remove Skill', 'skills')}
