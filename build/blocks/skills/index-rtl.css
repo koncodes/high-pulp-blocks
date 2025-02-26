@@ -26,3 +26,7 @@
   max-width: 100px;
   height: auto;
 }
+
+.skill-remove {
+  grid-area: 3/1/4/2;
+}

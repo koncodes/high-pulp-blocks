@@ -34,11 +34,26 @@ import { RichText, PlainText } from '@wordpress/block-editor';
 import { SelectControl } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import StarRating from "../../components/StarRating";
+import BlockSettings from "./BlockSettings";
 
 
 export default function Edit( {attributes, setAttributes} ) {
+
+	//react translates kabob-case to camelCase
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.textColor,
+	}
 	return (
-		<div {...useBlockProps()}>
+		<div {...useBlockProps()} style={divStyles}>
+			<BlockSettings
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
 			<StarRating
 				rating={attributes.stars}
 				setRating={stars => setAttributes({stars: parseInt(stars)})}
@@ -50,7 +65,7 @@ export default function Edit( {attributes, setAttributes} ) {
 				value={ attributes.quote }
 				onChange={ value => setAttributes({quote: value}) }
 			/>
-			<div className="quote-profile">
+			<div className="quote-profile"  style={{display: attributes.showAuthor ? 'flex' : 'none'}}>
 				<div className="photo">
 					<MediaUploadCheck>
 						<MediaUpload

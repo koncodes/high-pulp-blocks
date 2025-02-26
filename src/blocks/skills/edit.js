@@ -31,10 +31,21 @@ import './editor.scss';
  */
 import { Button } from '@wordpress/components';
 import SkillEditor from '../../components/SkillEditor';
+import BlockSettings from "./BlockSettings";
+
 
 export default function Edit({ attributes, setAttributes }) {
 	const { skills } = attributes;
 	const blockProps = useBlockProps();
+
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		"--background-color": attributes.backgroundColor,
+		"--text-color": attributes.textColor,
+	}
 
 	const addSkill = () => {
 		if (skills.length < 10) {
@@ -56,7 +67,19 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	return (
-		<div {...blockProps}>
+		<div
+			{...blockProps}
+			style={divStyles}
+			className={`
+				${blockProps.className || ''}
+				name-${attributes.showName ? 'true' : 'false'}
+				desc-${attributes.showDesc ? 'true' : 'false'}
+			`}
+		>
+			<BlockSettings
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
 			{skills.map((skill, index) => (
 				<SkillEditor
 					key={index}

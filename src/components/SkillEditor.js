@@ -6,50 +6,38 @@ export default function SkillEditor({ skill, onChange, onRemove }) {
 	// Ensure skill is always an object
 	const { name = '', imageUrl = '', description = '' } = skill || {};
 
-	const handleNameChange = (value) => {
-		onChange({ ...skill, name: value });
-	};
-
-	const handleDescriptionChange = (value) => {
-		onChange({ ...skill, description: value });
-	};
-
-	const handleImageChange = (media) => {
-		onChange({ ...skill, imageUrl: media.url });
-	};
-
 	return (
 		<div className="skill-item">
 			<PlainText
 				className="skill-name"
 				tagName="p"
-				label={__('Skill Name', 'skills')}
+				placeholder={__('Enter skill name.', 'skills')}
 				value={name}
-				onChange={handleNameChange}
+				onChange={(value) => onChange({ ...skill, name: value })}
 			/>
 			<RichText
 				className="skill-desc"
 				tagName="div"
 				placeholder={__('Enter skill description.', 'skills')}
 				value={description}
-				onChange={handleDescriptionChange}
+				onChange={(value) => onChange({ ...skill, description: value })}
 			/>
 			<MediaUploadCheck>
 				<MediaUpload
 					className="skill-upload"
-					onSelect={handleImageChange}
+					onSelect={(media) => onChange({ ...skill, imageUrl: media.url })}
 					allowedTypes={['image']}
 					render={({ open }) => (
-						<Button onClick={open}>
+						<Button onClick={open} className="skill-img">
 							{imageUrl ? __('Replace Image', 'skills') : __('Upload Image', 'skills')}
 						</Button>
 					)}
 				/>
 			</MediaUploadCheck>
 			{imageUrl && (
-				<img className="skill-img" src={imageUrl} alt={__('Skill Image', 'skills')} style={{ maxWidth: '100px' }} />
+				<img className="skill-img" src={imageUrl} alt={__('Skill Image', 'skills')} />
 			)}
-			<Button isDestructive onClick={onRemove}>
+			<Button isDestructive onClick={onRemove} className="skill-remove">
 				{__('Remove Skill', 'skills')}
 			</Button>
 		</div>

@@ -2,13 +2,103 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/blocks/skills/BlockSettings.js":
+/*!********************************************!*\
+  !*** ./src/blocks/skills/BlockSettings.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BlockSettings)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/colors */ "./src/common/colors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+function BlockSettings({
+  attributes,
+  setAttributes
+}) {
+  const [hasFixedBackground, setHasFixedBackground] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Basic",
+      initialOpen: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "Background Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+          colors: _common_colors__WEBPACK_IMPORTED_MODULE_3__["default"],
+          value: attributes.backgroundColor,
+          onChange: backgroundColor => setAttributes({
+            backgroundColor
+          })
+          // disableCustomColors={true}
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "Text Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+          color: attributes.textColor,
+          onChange: textColor => setAttributes({
+            textColor
+          }),
+          enableAlpha: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          __nextHasNoMarginBottom: true,
+          label: "Show Skill Name",
+          help: attributes.showName ? 'Showing Name.' : 'Hiding Name.',
+          checked: attributes.showName,
+          onChange: showName => {
+            setAttributes({
+              showName
+            });
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          __nextHasNoMarginBottom: true,
+          label: "Show Skill Description",
+          help: attributes.showDesc ? 'Showing Description.' : 'Hiding Description.',
+          checked: attributes.showDesc,
+          onChange: showDesc => {
+            setAttributes({
+              showDesc
+            });
+          }
+        })
+      })]
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./src/blocks/skills/block.json":
 /*!**************************************!*\
   !*** ./src/blocks/skills/block.json ***!
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/skills","version":"0.1.0","title":"Skills","category":"design","icon":"learn-more","description":"displays skills and competencies.","example":{},"supports":{"html":false},"textdomain":"skills","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"skills":{"type":"array","default":[]}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kn/skills","version":"0.1.0","title":"Skills","category":"design","icon":"editor-help","description":"displays skills and competencies.","example":{},"supports":{"html":false},"textdomain":"skills","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"skills":{"type":"array","default":[]},"backgroundColor":{"type":"string"},"textColor":{"type":"string"},"showName":{"type":"boolean","default":"true"},"showDesc":{"type":"boolean","default":"true"}}}');
 
 /***/ }),
 
@@ -30,8 +120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_SkillEditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/SkillEditor */ "./src/components/SkillEditor.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/skills/BlockSettings.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * Retrieves the translation of text.
  *
@@ -66,6 +157,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function Edit({
   attributes,
   setAttributes
@@ -74,6 +166,15 @@ function Edit({
     skills
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const divStyles = {
+    "--background-color": attributes.backgroundColor,
+    "--text-color": attributes.textColor
+  };
   const addSkill = () => {
     if (skills.length < 10) {
       setAttributes({
@@ -98,13 +199,22 @@ function Edit({
       skills: updatedSkills
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     ...blockProps,
-    children: [skills.map((skill, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SkillEditor__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    style: divStyles,
+    className: `
+				${blockProps.className || ''}
+				name-${attributes.showName ? 'true' : 'false'}
+				desc-${attributes.showDesc ? 'true' : 'false'}
+			`,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_BlockSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      attributes: attributes,
+      setAttributes: setAttributes
+    }), skills.map((skill, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_SkillEditor__WEBPACK_IMPORTED_MODULE_4__["default"], {
       skill: skill,
       onChange: updatedSkill => updateSkill(index, updatedSkill),
       onRemove: () => removeSkill(index)
-    }, index)), skills.length < 10 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    }, index)), skills.length < 10 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       variant: "primary",
       onClick: addSkill,
       children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add Skill', 'skills')
@@ -219,8 +329,17 @@ function save({
     skills
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const divStyles = {
+    "--background-color": attributes.backgroundColor,
+    "--text-color": attributes.textColor
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ...blockProps,
+    style: divStyles,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "skills-list",
       children: skills.map((skill, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -229,10 +348,10 @@ function save({
           className: "skill-img",
           src: skill.imageUrl,
           alt: skill.name
-        }), skill.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+        }), attributes.showName && skill.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           className: "skill-name",
           children: skill.name
-        }), skill.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        }), attributes.showDesc && skill.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
           className: "skill-desc",
           children: skill.description
         })]
@@ -252,6 +371,30 @@ function save({
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/common/colors.js":
+/*!******************************!*\
+  !*** ./src/common/colors.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const colors = [{
+  name: 'red',
+  color: '#475c46'
+}, {
+  name: 'white',
+  color: '#fff'
+}, {
+  name: 'blue',
+  color: '#5d677e'
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (colors);
 
 /***/ }),
 
@@ -288,60 +431,50 @@ function SkillEditor({
     imageUrl = '',
     description = ''
   } = skill || {};
-  const handleNameChange = value => {
-    onChange({
-      ...skill,
-      name: value
-    });
-  };
-  const handleDescriptionChange = value => {
-    onChange({
-      ...skill,
-      description: value
-    });
-  };
-  const handleImageChange = media => {
-    onChange({
-      ...skill,
-      imageUrl: media.url
-    });
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "skill-item",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
       className: "skill-name",
       tagName: "p",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Skill Name', 'skills'),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Enter skill name.', 'skills'),
       value: name,
-      onChange: handleNameChange
+      onChange: value => onChange({
+        ...skill,
+        name: value
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       className: "skill-desc",
       tagName: "div",
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Enter skill description.', 'skills'),
       value: description,
-      onChange: handleDescriptionChange
+      onChange: value => onChange({
+        ...skill,
+        description: value
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
         className: "skill-upload",
-        onSelect: handleImageChange,
+        onSelect: media => onChange({
+          ...skill,
+          imageUrl: media.url
+        }),
         allowedTypes: ['image'],
         render: ({
           open
         }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
           onClick: open,
+          className: "skill-img",
           children: imageUrl ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Replace Image', 'skills') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Upload Image', 'skills')
         })
       })
     }), imageUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
       className: "skill-img",
       src: imageUrl,
-      alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Skill Image', 'skills'),
-      style: {
-        maxWidth: '100px'
-      }
+      alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Skill Image', 'skills')
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
       isDestructive: true,
       onClick: onRemove,
+      className: "skill-remove",
       children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Remove Skill', 'skills')
     })]
   });
@@ -386,6 +519,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

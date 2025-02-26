@@ -18,15 +18,22 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({ attributes }) {
 	const { skills } = attributes;
 	const blockProps = useBlockProps.save();
-
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		"--background-color": attributes.backgroundColor,
+		"--text-color": attributes.textColor,
+	}
 	return (
-		<div {...blockProps}>
+		<div {...blockProps} style={divStyles}>
 			<div className="skills-list">
 				{skills.map((skill, index) => (
 					<div key={index} className="skill-item">
 						{skill.imageUrl && <img className="skill-img" src={skill.imageUrl} alt={skill.name} />}
-						{skill.name && <h3 className="skill-name">{skill.name}</h3>}
-						{skill.description && <p className="skill-desc">{skill.description}</p>}
+						{attributes.showName && skill.name && <h3 className="skill-name">{skill.name}</h3>}
+						{attributes.showDesc && skill.description && <p className="skill-desc">{skill.description}</p>}
 					</div>
 				))}
 			</div>

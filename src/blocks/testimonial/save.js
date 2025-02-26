@@ -14,15 +14,23 @@ import StarRating from "../../components/StarRating";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
  *
- * @return {Element} Element to render.
+ * @return {JSX.Element} Element to render.
  */
 export default function save( { attributes } ) {
 	let stars = '';
 	for(let i = 0; i < attributes.stars; i++){
 		stars += '★';
 	}
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.textColor,
+	}
 	return (
-		<div {...useBlockProps.save()}>
+		<div {...useBlockProps.save()} style={divStyles}>
 			{/*<StarRating rating={attributes.stars} />*/}
 			<div className="stars">{ stars }</div>
 			<RichText.Content
@@ -30,12 +38,12 @@ export default function save( { attributes } ) {
 				className="quote"
 				value={ attributes.quote }
 			/>
-			<div className="quote-profile">
+			<div className="quote-profile" style={{display: attributes.showAuthor ? 'flex' : 'none'}}>
 				<div className="photo">
-					<img src={ attributes.avatarURL } alt={"Photo of " + attributes.author} />
+					<img src={attributes.avatarURL} alt={"Photo of " + attributes.author}/>
 				</div>
 				<div className="text">
-					<p className="author">{ attributes.author }</p>
+					<p className="author">{attributes.author}</p>
 					<p className="location">Point Place, WI</p>
 				</div>
 			</div>
