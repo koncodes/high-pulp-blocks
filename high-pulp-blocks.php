@@ -28,5 +28,9 @@ function kn_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/high-pulp-blocks' );
 	register_block_type( __DIR__ . '/build/blocks/testimonial' );
 	register_block_type( __DIR__ . '/build/blocks/skills' );
+	register_block_type( __DIR__ . '/build/filters/border-control' );
+
 }
 add_action( 'init', 'kn_high_pulp_blocks_block_init' );
+
+include __DIR__ . '/filters.php';

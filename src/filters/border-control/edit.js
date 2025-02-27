@@ -1,6 +1,6 @@
 import { createHigherOrderComponent } from "@wordpress/compose";
 import { Fragment } from "@wordpress/element";
-import { InspectorControls } from "@wordpress/block-editor";
+import {InspectorControls, PlainText} from "@wordpress/block-editor";
 import { PanelBody, PanelRow, SelectControl } from "@wordpress/components";
 import { addFilter } from "@wordpress/hooks";
 import React from "react";
@@ -16,7 +16,7 @@ function blockWrapper(WrappedBlock) {
         borderStyle: attributes.bcBorderStyle || "none",
         borderWidth: "2px",
         borderColor: "black",
-        padding: "10px",
+        padding: (attributes.bcPadding || 0) + 'px',
       };
 
       // don't apply styles if there is no border
@@ -29,17 +29,27 @@ function blockWrapper(WrappedBlock) {
           {/* This is panel/toolbar we are adding to each block */}
           <InspectorControls>
             <PanelBody title="Border Controls" initialOpen={false}>
-              <SelectControl
-                label="Style"
-                value={attributes.bcBorderStyle}
-                onChange={(bcBorderStyle) => setAttributes({ bcBorderStyle })}
-                options={[
-                  { label: "None", value: "none" },
-                  { label: "Solid", value: "solid" },
-                  { label: "Dashed", value: "dashed" },
-                  { label: "Dotted", value: "dotted" },
-                ]}
-              />
+				<PanelRow>
+				  <SelectControl
+					label="Style"
+					value={attributes.bcBorderStyle}
+					onChange={(bcBorderStyle) => setAttributes({ bcBorderStyle })}
+					options={[
+					  { label: "None", value: "none" },
+					  { label: "Solid", value: "solid" },
+					  { label: "Dashed", value: "dashed" },
+					  { label: "Dotted", value: "dotted" },
+					]}
+				  />
+				</PanelRow>
+				<PanelRow>
+					<label>Padding <br />
+						<input type="number"
+							value={attributes.bcPadding}
+							onChange={e => setAttributes({bcPadding: parseInt(e.target.value)})}
+						/> px
+					</label>
+				</PanelRow>
             </PanelBody>
           </InspectorControls>
 
@@ -64,6 +74,6 @@ const borderComponent = createHigherOrderComponent(
 // register our filter with WordPress
 addFilter(
   "editor.BlockEdit",
-  "your-plugin-name/border-control/block-wrapper",
+  "kn/border-control/block-wrapper",
   borderComponent,
 );

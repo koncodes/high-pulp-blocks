@@ -22,6 +22,6 @@ function addBorderDiv(element, blockType, attributes) {
 
 addFilter(
   "blocks.getSaveElement",
-  "your-plugin-name/border-control/add-border-element",
+  "kn/border-control/add-border-element",
   addBorderDiv,
 );
