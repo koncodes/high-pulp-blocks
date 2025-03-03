@@ -20,6 +20,9 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import metadata from './block.json'
+import BlockSettings from "./BlockSettings";
+import ServerSideRender from '@wordpress/server-side-render';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,10 +32,36 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit( {attributes, setAttributes} ) {
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Staff List – hello from the editor!', 'staff-list' ) }
-		</p>
+		<div {...useBlockProps()}>
+			<BlockSettings
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
+			<div className="flip-card">
+				<div className="flip-card-inner">
+					<div className="flip-card-front">
+						<img src="https://2.gravatar.com/avatar/ea8b076b398ee48b71cfaecf898c582b?s=250&d=mm&r=g"/>
+					</div>
+					<div className="flip-card-back" style={{backgroundColor: attributes.cardColor, color: attributes.textColor}}>
+						<h3 className="name" style={{color: attributes.headingColor}}>Red Forman</h3>
+						<div className="position">Manager</div>
+						<div className="bio">
+							<p>If I Was A Bird, I’d Fly Into A Ceiling Fan.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ServerSideRender
+				block={metadata.name}
+				attributes={attributes}
+			/>
+		</div>
 	);
 }
