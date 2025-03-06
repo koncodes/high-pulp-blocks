@@ -30,6 +30,8 @@ function kn_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/skills' );
 	register_block_type( __DIR__ . '/build/filters/border-control' );
 	register_block_type( __DIR__ . '/build/blocks/staff-list' );
+	register_block_type( __DIR__ . '/build/blocks/staff-directory' );
+
 }
 add_action( 'init', 'kn_high_pulp_blocks_block_init' );
 
