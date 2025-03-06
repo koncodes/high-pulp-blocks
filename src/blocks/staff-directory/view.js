@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import BlockApp from "./react-app/App";
+import BlockApp from "./react-app/BlockApp";
 
 // Render your React component instead
 const blocks = document.querySelectorAll('.wp-block-kn-staff-directory');
