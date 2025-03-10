@@ -1,4 +1,6 @@
 <?php
+namespace KN\PortfolioTestimonials;
+
 /**
  * Plugin Name:       High Pulp Blocks
  * Description:       Add some extra pulp to your site with these 100% original blocks.
@@ -24,7 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function kn_high_pulp_blocks_block_init() {
+
+add_action( 'init', function () {
 	register_block_type( __DIR__ . '/build/blocks/high-pulp-blocks' );
 	register_block_type( __DIR__ . '/build/blocks/testimonial' );
 	register_block_type( __DIR__ . '/build/blocks/skills' );
@@ -32,7 +35,31 @@ function kn_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/staff-list' );
 	register_block_type( __DIR__ . '/build/blocks/staff-directory' );
 	register_block_type( __DIR__ . '/build/blocks/testimonial-blocks' );
-}
-add_action( 'init', 'kn_high_pulp_blocks_block_init' );
+});
 
 include __DIR__ . '/filters.php';
+
+
+/*
+Plugin Name: Portfolio Testimonials
+Description: Add testimonials to your portfolio WordPress site.
+Version: 1.0.0
+Author: Konika Nahar
+Text Domain: kn-testimonials
+*/
+
+
+const TEXT_DOMAIN = 'kn-testimonials';
+const PLUGIN_FILE = __FILE__;
+
+//include classes
+require_once __DIR__ ."/classes/Singleton.php";
+require_once __DIR__ ."/classes/Plugin.php";
+require_once __DIR__ ."/classes/TestimonialPostType.php";
+require_once __DIR__ ."/classes/TestimonialTag.php";
+require_once __DIR__ ."/classes/TestimonialMeta.php";
+require_once __DIR__ ."/classes/RecentTestimonialsShortcode.php";
+require_once __DIR__ ."/classes/TestimonialSettings.php";
+
+
+Plugin::getInstance();

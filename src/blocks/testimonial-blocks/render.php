@@ -72,36 +72,6 @@ if ($query->have_posts()) :
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-	<style>
-		.cards-wrapper {
-			display: flex;
-			justify-content: center;
-			gap: 10px;
-			height:
-		}
-		.card {
-			width: 18rem;
-			box-shadow: 2px 6px 8px rgba(22, 22, 26, 0.18);
-			border: none;
-		}
-		.card img {
-			max-width: 100%;
-			height: 200px;
-			object-fit: cover;
-		}
-		.carousel-inner {
-			padding: 1em;
-		}
-		.carousel-control-prev,
-		.carousel-control-next {
-			background-color: rgba(0, 0, 0, 0.5);
-			width: 3rem;
-			height: 3rem;
-			border-radius: 50%;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-	</style>
 <?php
 endif;
 ?>
