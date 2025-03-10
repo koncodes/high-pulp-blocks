@@ -1,0 +1,76 @@
+@import "../../components/StarRating";
+
+.wp-block-kn-submit-review {
+	.new-review-form {
+		background-color: aliceblue;
+		padding: 20px;
+		max-width: 300px;
+		box-shadow: 1px 1px 4px #bbb;
+		border-radius: 4px;
+
+		&>div {
+			margin-bottom: 20px;
+		}
+
+		input, textarea {
+			width: 100%;
+		}
+	}
+
+	.error-msg {
+		background-color: #fc1a1a;
+		padding: 30px;
+		color: white;
+	}
+
+	.review-list {
+
+	}
+
+	.review-card {
+		width: 100%;
+		padding: 10px 15px;
+		margin: 10px;
+		border: 1px solid #888;
+		box-shadow: 1px 1px 3px #bbb;
+		border-radius: 4px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+
+		.review-title {
+			font-weight: bold;
+		}
+
+		.review-content {
+			width: 100%;
+		}
+
+		.stars {
+			//text-align: center;
+			font-size: 1.5em;
+		}
+	}
+
+	.pagination {
+		display: flex;
+		justify-content: center;
+
+		button {
+			padding: 5px 14px;
+			margin: 5px;
+			font-size: .8em;
+		}
+
+		button:disabled {
+			background-color: #888888;
+			cursor: default;
+		}
+
+		button.active {
+			background-color: #4CAF50;
+			color: white;
+		}
+	}
+}

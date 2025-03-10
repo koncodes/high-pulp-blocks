@@ -35,18 +35,15 @@ add_action( 'init', function () {
 	register_block_type( __DIR__ . '/build/blocks/staff-list' );
 	register_block_type( __DIR__ . '/build/blocks/staff-directory' );
 	register_block_type( __DIR__ . '/build/blocks/testimonial-blocks' );
+	register_block_type( __DIR__ . '/build/blocks/submit-review' );
+
+	wp_enqueue_script('wp-api');
+
 });
 
+//add api client for submit-review block
+
 include __DIR__ . '/filters.php';
-
-
-/*
-Plugin Name: Portfolio Testimonials
-Description: Add testimonials to your portfolio WordPress site.
-Version: 1.0.0
-Author: Konika Nahar
-Text Domain: kn-testimonials
-*/
 
 
 const TEXT_DOMAIN = 'kn-testimonials';

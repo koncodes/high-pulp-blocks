@@ -432,16 +432,17 @@ __webpack_require__.r(__webpack_exports__);
 
 function StarRating({
   rating,
-  setRating
+  setRating,
+  readonly
 }) {
   const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "stars",
+    className: 'stars' + (readonly ? ' readonly' : ''),
     children: [1, 2, 3, 4, 5].map(star => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       className: star <= hover ? 'star on' : 'star off',
-      onMouseEnter: () => setHover(star),
-      onMouseLeave: () => setHover(rating),
-      onClick: () => setRating(star),
+      onMouseEnter: () => !readonly && setHover(star),
+      onMouseLeave: () => !readonly && setHover(rating),
+      onClick: () => !readonly && setRating(star),
       children: "\u2605"
     }, star))
   });
