@@ -27,7 +27,7 @@ $query = new WP_Query(
 					<?= get_the_post_thumbnail(); ?>
 				</div>
 				<div class="flip-card-back" style="background-color: <?= $attributes['cardColor'] ?>; color: <?= $attributes['textColor'] ?>">
-					<h3 class="name"style="color: <?= $attributes['headingColor'] ?>"><?= get_the_title() ?></h3>
+					<h3 class="name" style="color: <?= $attributes['headingColor'] ?>"><a href="<?= get_the_permalink() ?>"<?= get_the_title() ?></a></h3>
 					<div class="position"><?= get_post_meta(get_the_ID(), 'staff_position', true) ?></div>
 					<div class="bio">
 						<p><?= get_post_meta(get_the_ID(), 'staff_bio', true) ?></p>

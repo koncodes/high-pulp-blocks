@@ -4,8 +4,8 @@ import {TextControl} from "@wordpress/components";
 
 export default function BlockApp(props) {
 	let [keyword, setKeyword] = useState('');
-	let[staff, setStaff] = useState([]);
-	let[filteredStaff, setFilteredStaff] = useState([]);
+	let [staff, setStaff] = useState([]);
+	let [filteredStaff, setFilteredStaff] = useState([]);
 
 	useEffect(() => {
 		fetch('/wp-json/wp/v2/staff')
