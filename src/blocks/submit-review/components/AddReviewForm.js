@@ -4,7 +4,7 @@ import {
 	__experimentalNumberControl as NumberControl,
 	TextareaControl, Button
 } from "@wordpress/components";
-// TODO: import StarRating from "../../../components/StarRating";
+import StarRating from "../../../components/StarRating";
 
 export default function AddReviewForm(props) {
 	const [title, setTitle] = useState('');
@@ -56,7 +56,7 @@ export default function AddReviewForm(props) {
 				max={5}
 				step={1}
 			/>
-			{/*	TODO: Use StarRating component? */}
+			<StarRating rating={rating} setRating={setRating} />
 
 			<TextareaControl
 				label="Review"

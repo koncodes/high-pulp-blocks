@@ -70,3 +70,10 @@
   background-color: #4CAF50;
   color: white;
 }
+.wp-block-kn-submit-review .delete-button {
+  display: none;
+}
+
+.logged-in .wp-block-kn-submit-review .delete-button {
+  display: inline-block;
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace KN\PortfolioTestimonials;
+namespace KN\Portfolio;
 
 abstract class Singleton
 {

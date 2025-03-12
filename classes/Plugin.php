@@ -1,6 +1,6 @@
 <?php
 
-namespace KN\PortfolioTestimonials;
+namespace KN\Portfolio;
 
 class Plugin extends Singleton
 {
@@ -20,6 +20,12 @@ class Plugin extends Singleton
         TestimonialMeta::getInstance();
         RecentTestimonialsShortcode::getInstance();
         TestimonialSettings::getInstance();
+
+	    ProjectPostType::getInstance();
+	    ProjectLanguage::getInstance();
+	    ProjectMeta::getInstance();
+	    RecentProjectsShortcode::getInstance();
+	    ProjectSettings::getInstance();
 
 	    add_action('wp_enqueue_scripts', [$this, 'enqueueStyles']);
 
@@ -51,6 +57,12 @@ class Plugin extends Singleton
 		wp_enqueue_style(
 			'kn-testimonials-style',
 			plugin_dir_url(PLUGIN_FILE) . 'css/portfolio-testimonials.css',
+			[],  // Dependencies
+			'1.0.0' // Version number
+		);
+		wp_enqueue_style(
+			'kn-projects-style',
+			plugin_dir_url(PLUGIN_FILE) . 'css/portfolio-projects.css',
 			[],  // Dependencies
 			'1.0.0' // Version number
 		);

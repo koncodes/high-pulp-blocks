@@ -5,18 +5,18 @@ import ReviewPagination from "./ReviewPagination";
 
 export default function BlockApp() {
 	const [reviews, setReviews] = useState([]);
-	const [loggedIn, setLoggedIn] = useState(false);
+	const [loggedIn, setLoggedIn] = useState(null);
 	const [pagination, setPagination] = useState({});
 
 	// run once when app is loaded
 	useEffect(() => {
-		// TODO: only do this once the API client is ready
-		getReviews();
-		getLoggedInUser();
+		wp.api.loadPromise.done( function() {
+			getReviews();
+			getLoggedInUser();
+		});
 	}, []);
 
 	function getReviews(page = 1) {
-		// TODO: getReviews
 		const reviewsCollection = new wp.api.collections.Review();
 		reviewsCollection
 			.fetch({data: {per_page: 3, page: page }}) // returns a jqXHR (Yay! jQuery!)
@@ -29,7 +29,6 @@ export default function BlockApp() {
 	}
 
 	function deleteReview(review){
-		// TODO: deleteReview
 		review.destroy() // backbone jqXHR
 			.done(data => {
 				getReviews();
@@ -37,7 +36,6 @@ export default function BlockApp() {
 	}
 
 	function addReview(newReview) {
-		// TODO: addReview
 		const post = new wp.api.models.Review(newReview);
 		post.save() // returns jqXHR
 			.done(data => {
@@ -63,13 +61,11 @@ export default function BlockApp() {
 		<div>
 			<h3>Latest Reviews</h3>
 			<ReviewList reviews={reviews} deleteReview={deleteReview}/>
-			{/* TODO: add pagination */}
 			<ReviewPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} setPage={getReviews} />
 			<hr/>
 			<h3>Submit a Review</h3>
-			{/* TODO: only show form if the user is logged in */}
-			<AddReviewForm addReview={newReview => addReview(newReview)} />
-			{/*<div className="error-msg">You need to log in to submit a review</div> */}
+			{loggedIn === true && <AddReviewForm addReview={newReview => addReview(newReview)} />}
+			{loggedIn === false && <div className="error-msg">You need to log in to submit a review</div>}
 		</div>
 	);
 }

@@ -73,4 +73,13 @@
 			color: white;
 		}
 	}
+
+
+	.delete-button {
+		display: none;
+	}
+
+}
+.logged-in .wp-block-kn-submit-review .delete-button {
+	display: inline-block;
 }

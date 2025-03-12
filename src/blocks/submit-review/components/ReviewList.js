@@ -6,6 +6,7 @@ export default function ReviewList({reviews, deleteReview}) {
 		<div className="review-list">
 			{reviews.map(review => (
 				<ReviewCard
+					link={review.attributes.link}
 					title={review.attributes.title.rendered}
 					rating={review.attributes.acf.review_rating}
 					review={review.attributes.content.rendered}
