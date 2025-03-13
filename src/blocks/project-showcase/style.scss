@@ -1,0 +1,100 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-kn-project-showcase {
+	padding: 2px;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+	.project-card {
+		list-style: none;
+		border: 1px solid;
+		border-radius: 5px;
+		padding: 10px;
+		box-sizing: border-box;
+		width: 300px;
+
+	}
+	.project-links a {
+		border: 1px solid;
+		padding: 5px;
+		border-radius: 5px;
+		margin: 5px 5px 5px 0;
+	}
+
+	.skeleton {
+		display: flex;
+		align-items: center;
+		flex: 0 0 auto;
+		max-width: 100%;
+		box-sizing: border-box;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.skeleton::before, .skeleton::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+		background: #00000019;
+	}
+
+	.skeleton::before {
+		background: linear-gradient(90deg, #0000, #3333331a, #0000);
+		animation: shimmer 1500ms linear .5s infinite;
+	}
+
+	@keyframes shimmer {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+
+	.skeleton.square {
+		border-radius: 5px;
+	}
+
+	.skeleton.circle {
+		border-radius: 50%;
+	}
+
+	.skeleton.line {
+		flex: 1 1 auto;
+		height: 1em;
+	}
+
+	.skeleton:has(> .skeleton) {
+		padding: 0.25em;
+		gap: .1em;
+		align-items: center;
+	}
+
+	.skeleton > .skeleton {
+		display: inline-block;
+	}
+
+	.skeleton-light, .skeleton-gray {
+		background-color: #fbfbfb;
+	}
+
+	.skeleton-light::before, .skeleton-light::after {
+		display: none;
+	}
+
+}

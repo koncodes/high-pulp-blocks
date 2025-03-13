@@ -36,6 +36,8 @@ add_action( 'init', function () {
 	register_block_type( __DIR__ . '/build/blocks/staff-directory' );
 	register_block_type( __DIR__ . '/build/blocks/testimonial-blocks' );
 	register_block_type( __DIR__ . '/build/blocks/submit-review' );
+	register_block_type( __DIR__ . '/build/blocks/project-showcase' );
+
 	wp_enqueue_script('wp-api');
 
 });
@@ -57,13 +59,13 @@ require_once __DIR__ ."/classes/TestimonialMeta.php";
 require_once __DIR__ ."/classes/RecentTestimonialsShortcode.php";
 require_once __DIR__ ."/classes/TestimonialSettings.php";
 
-require_once "classes/Singleton.php";
-require_once "classes/Plugin.php";
-require_once "classes/ProjectPostType.php";
-require_once "classes/ProjectLanguage.php";
-require_once "classes/ProjectMeta.php";
-require_once "classes/RecentProjectsShortcode.php";
-require_once "classes/ProjectSettings.php";
+require_once __DIR__ . "/classes/Singleton.php";
+require_once __DIR__ . "/classes/Plugin.php";
+require_once __DIR__ . "/classes/ProjectPostType.php";
+require_once __DIR__ . "/classes/ProjectLanguage.php";
+require_once __DIR__ . "/classes/ProjectMeta.php";
+require_once __DIR__ . "/classes/RecentProjectsShortcode.php";
+require_once __DIR__ . "/classes/ProjectSettings.php";
 
 
 Plugin::getInstance();
@@ -75,4 +77,28 @@ add_filter('the_content', function ($content) {
 
 	}
 	return $content;
+});
+
+
+add_action('init', function () {
+	$fields = [
+		'projectTechnologies',
+		'projectGallery',
+		'gitLink',
+		'liveLink'
+	];
+
+	foreach ($fields as $field) {
+		register_rest_field(
+			'project', // Post type
+			$field, // Meta field name
+			[
+				'get_callback'    => function ($post) use ($field) {
+					return get_post_meta($post['id'], $field, true);
+				},
+				'update_callback' => null,
+				'schema'          => null,
+			]
+		);
+	}
 });

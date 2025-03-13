@@ -82,6 +82,7 @@ class ProjectPostType extends Singleton
             'publicly_queryable'    => true,
             'capability_type'       => 'page',
             'show_in_rest'          => true,
+            'rest_base'          => 'project',
             'menu_icon'             => 'dashicons-portfolio',
             'rewrite'               => array(
 	            'slug'       => strtolower($singular),
